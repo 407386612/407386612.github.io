@@ -6,19 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>about | azhang blog</title>
+  <title>静态博客Hexo搭建教程 | azhang blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+  <meta name="description" content="手把手用hexo构建一个个人博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="静态博客Hexo搭建教程">
+<meta property="og:url" content="http://yoursite.com/2019/06/18/静态博客Hexo搭建教程/index.html">
 <meta property="og:site_name" content="azhang blog">
-<meta property="og:description" content="博客">
+<meta property="og:description" content="手把手用hexo构建一个个人博客">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-13T04:04:27.964Z">
+<meta property="og:image" content="http://yoursite.com/.com//1.jpg">
+<meta property="og:image" content="http://yoursite.com/.com//2.jpg">
+<meta property="og:image" content="http://yoursite.com/.com//3.jpg">
+<meta property="og:updated_time" content="2019-06-18T10:20:58.196Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="博客">
+<meta name="twitter:title" content="静态博客Hexo搭建教程">
+<meta name="twitter:description" content="手把手用hexo构建一个个人博客">
+<meta name="twitter:image" content="http://yoursite.com/.com//1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="azhang blog" type="application/atom+xml">
   
@@ -150,27 +154,47 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-静态博客Hexo搭建教程" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      about
+      静态博客Hexo搭建教程
     </h1>
   
 
         
-        <a href="/about/index.html" class="archive-article-date">
-  	<time datetime="2019-06-13T04:04:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-13</time>
+        <a href="/2019/06/18/静态博客Hexo搭建教程/" class="archive-article-date">
+  	<time datetime="2019-06-18T09:55:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>手把手用hexo构建一个个人博客</p>
+<a id="more"></a>
+
+<p><strong>本地安装</strong><br><strong>1. 安装Node.js</strong><br>因为Hexo是通过Node.js生成的，所以首先需要根据自己的操作系统版本下载并安装Node.js。<br>根据步骤提示进行操作后，在item（Windows是cmd）中输入命令：<br>node -v<br>如果能正确显示Node.js版本，则说明安装成功（本人使用的版本为v10.15.3）。</p>
+<p><strong>2. 通过npm安装Hexo框架</strong><br>Node.js安装成功后，同时会自动安装一个包管理器，称为npm（Node Package Manager）。</p>
+<p>什么是npm？<br>npm是一个包管理器，发布者将自己的代码发布（npm publish）到代码仓库（registry），使用者将自己需要的包写入package.json文件中，到代码仓库中把代码下载（npm install）下来。</p>
+<p>安装：npm install -g hexo-cli<br>查看版本：hexo -v（本人使用的Hexo版本为1.1.0）</p>
+<p>由于npm代码仓库的服务器在国外，由于Great Firewall的缘故，下载速度可能不尽如人意，这时你可以使用淘宝的npm代码仓库，通过npm安装cnpm：<br>npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a><br>安装成功后，可以通过以下命令查看cnpm版本：<br>cnpm -v<br>通过cnpm来操作下载速度会得到很大提升，但包的版本不一定是最新的。</p>
+<hr>
+<p><strong>本地使用</strong><br><strong>1. 创建目录</strong><br>Hexo的所有文章都是以文件的形式存储在目录下的，所以首先需要新建一个目录，我的是Hexo，在此目录下操作。</p>
+<p><strong>2. 初始化博客</strong><br>hexo init</p>
+<p><strong>3. 新建文章</strong><br>hexo new “BlogName”（BlogName是你的文章名称）<br>会在source/_posts目录下生成BlogName.md文件，可以vim或其他Markdown编辑器进行修改。</p>
+<p><strong>4. 生成博客静态文件</strong><br>hexo g（g代表generate），生成博客静态文件<br>每次修改文章后，都需要通过hexo clean清理一下，<br>然后通过hexo g重新生成，<br>最后也不要忘了通过hexo s重新启动Hexo。</p>
+<p><strong>5. 启动博客</strong><br>hexo s（s代表server，默认端口号是4000）</p>
+<p><strong>6. 更换主题</strong><br>将需要更换的主题下载并解压缩到theme/yourThemeName目录下，yourThemeName是你给主题取的名字，<br>如我用的主题是next，只需要解压缩到Hexo/themes/next目录下即可,<br>当然你也可以直接在Hexo目录下执行git clone <a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">https://github.com/theme-next/hexo-theme-next</a> themes/next，<br>解压完成后，修改_config.yaml文件中的theme属性，默认是landscape，修改为next：<br><img src="/.com//1.jpg" alt></p>
+<p><strong>7. 其他_config.yaml配置</strong><br>_config.yaml文件是Hexo项目的全局配置文件，常用的属性有：<br><img src="/.com//2.jpg" alt></p>
+<hr>
+<p><strong>服务器部署</strong><br><strong>（一） 本地 + github.io 白嫖部署</strong><br><strong>1. 生成github.io仓库</strong><br>首先注册并登录GitHub，创建新public仓库，仓库名称一定要是：<br>YourGitHubName.github.io（YourGitHubName是你的GitHub昵称，大小写敏感！）</p>
+<p><strong>2. 本地安装Hexo的git部署插件</strong><br>在Hexo的目录下，输入npm install –save hexo-deployer-git，会报一个peerDependencies WARNING，可以忽略。</p>
+<p><strong>3. 本地修改_config.yaml文件</strong><br>在Hexo目录下，找到_config.yaml文件，在#Deployment做如下修改：<br><img src="/.com//3.jpg" alt><br><strong>4. 部署</strong><br>hexo d<br>部署成功后，浏览器输入YourGitHubName.github.io即可访问，其中YourGitHubName是你的GitHub昵称，且大小写敏感</p>
+
       
 
       
@@ -249,7 +273,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/about/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/18/静态博客Hexo搭建教程/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -261,6 +285,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2019/06/17/one/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于和美工配合的那些事</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -329,7 +363,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
