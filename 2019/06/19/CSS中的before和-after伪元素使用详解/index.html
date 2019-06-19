@@ -6,23 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>静态博客Hexo搭建教程 | azhang blog</title>
+  <title>CSS中的before和:after伪元素使用详解 | azhang blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="手把手用hexo构建一个个人博客">
+  <meta name="description" content="关于伪元素before和after的理解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="静态博客Hexo搭建教程">
-<meta property="og:url" content="http://yoursite.com/2019/06/18/静态博客Hexo搭建教程/index.html">
+<meta property="og:title" content="CSS中的before和:after伪元素使用详解">
+<meta property="og:url" content="http://yoursite.com/2019/06/19/CSS中的before和-after伪元素使用详解/index.html">
 <meta property="og:site_name" content="azhang blog">
-<meta property="og:description" content="手把手用hexo构建一个个人博客">
+<meta property="og:description" content="关于伪元素before和after的理解">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/.com//1.jpg">
-<meta property="og:image" content="http://yoursite.com/.com//2.jpg">
-<meta property="og:image" content="http://yoursite.com/.com//3.jpg">
-<meta property="og:updated_time" content="2019-06-18T10:20:58.196Z">
+<meta property="og:updated_time" content="2019-06-19T15:01:46.111Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="静态博客Hexo搭建教程">
-<meta name="twitter:description" content="手把手用hexo构建一个个人博客">
-<meta name="twitter:image" content="http://yoursite.com/.com//1.jpg">
+<meta name="twitter:title" content="CSS中的before和:after伪元素使用详解">
+<meta name="twitter:description" content="关于伪元素before和after的理解">
   
     <link rel="alternative" href="/atom.xml" title="azhang blog" type="application/atom+xml">
   
@@ -154,46 +150,85 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-静态博客Hexo搭建教程" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CSS中的before和-after伪元素使用详解" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      静态博客Hexo搭建教程
+      CSS中的before和:after伪元素使用详解
     </h1>
   
 
         
-        <a href="/2019/06/18/静态博客Hexo搭建教程/" class="archive-article-date">
-  	<time datetime="2019-06-18T09:55:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-18</time>
+        <a href="/2019/06/19/CSS中的before和-after伪元素使用详解/" class="archive-article-date">
+  	<time datetime="2019-06-19T14:49:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>手把手用hexo构建一个个人博客</p>
+        <p>关于伪元素before和after的理解</p>
 <a id="more"></a>
 
-<p><strong>本地安装</strong><br><strong>1. 安装Node.js</strong><br>因为Hexo是通过Node.js生成的，所以首先需要根据自己的操作系统版本下载并安装Node.js。<br>根据步骤提示进行操作后，在item（Windows是cmd）中输入命令：<br>node -v<br>如果能正确显示Node.js版本，则说明安装成功（本人使用的版本为v10.15.3）。</p>
-<p><strong>2. 通过npm安装Hexo框架</strong><br>Node.js安装成功后，同时会自动安装一个包管理器，称为npm（Node Package Manager）。</p>
-<p>什么是npm？<br>npm是一个包管理器，发布者将自己的代码发布（npm publish）到代码仓库（registry），使用者将自己需要的包写入package.json文件中，到代码仓库中把代码下载（npm install）下来。</p>
-<p>安装：npm install -g hexo-cli<br>查看版本：hexo -v（本人使用的Hexo版本为1.1.0）</p>
-<p>由于npm代码仓库的服务器在国外，由于Great Firewall的缘故，下载速度可能不尽如人意，这时你可以使用淘宝的npm代码仓库，通过npm安装cnpm：<br>npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a><br>安装成功后，可以通过以下命令查看cnpm版本：<br>cnpm -v<br>通过cnpm来操作下载速度会得到很大提升，但包的版本不一定是最新的。</p>
+<p>“伪元素”，顾名思义。它创建了一个虚假的元素，并插入到目标元素内容之前或之后。</p>
+<p>单词“pseudo”是希腊语的英译，它的基本意思是“说谎的，不诚实的，错误的。”因此叫伪元素是适合的。因为在文档中它不实际改变什么。相反的，它们是像幽灵一般的元素插入在css中，他们对用户是可见的，可以通过css控制。<br>基本语法</p>
+<p>:before 和 :after 伪元素编码非常简单(和大多数的css属性一样不需要一大堆的前缀)。这里是一个简单的例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#example:before &#123;   </span><br><span class="line">  content: &quot;#&quot;;   </span><br><span class="line">&#125;   </span><br><span class="line">    </span><br><span class="line">#example:after &#123;   </span><br><span class="line">  content: &quot;.&quot;;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个例子中提到了两件事情，第一，我们用#example:before和#example:after来目标锁定相同的元素.严格的说，在代码中他们是伪元素。</p>
+<p>第二，在内容模块中提到，伪元素如果没有设置“content”属性，伪元素是无用的。</p>
+<p>在这个例子中，拥有属性id的元素将有一个哈希符号放置内容之前，和一个句号在内容之后。<br>语法笔记</p>
+<p>你可以设置content属性值为空，并且仅仅把他当做一个内容很少的盒子。像这样:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#example:before &#123;   </span><br><span class="line">  content: &quot;&quot;;   </span><br><span class="line">  display: block;   </span><br><span class="line">  width: 100px;   </span><br><span class="line">  height: 100px;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然而，你不可以完全的移除content属性，如果你移除了，伪元素将不会起作用。至少，content属性需要空引用作为它的值(即:content:“”)。</p>
+<p>你也许注意到，你也可以用两个冒号(::before 和 ::after) 写伪元素，这个我以前讨论过的。简短的解释是，对于这两种语法没有什么不同，仅仅一点的不同是，伪元素(双冒号)，css3中的伪类是（单冒号）</p>
+<p>最后就语法而言。从技术上讲，你可以普遍的应用伪元素，不是放在特殊的元素上，像这样：</p>
+<p>CSS Code复制内容到剪贴板<br>:before {<br>  content: “#”;<br>}  
+虽然上面是有效的，但是它十分的没用。代码会在DOM里的每个元素的内容之前插入散列符号。即使你删除了<body>标签和它的所有内容，你仍会在页面上看见两个散列符号：一个在<html>里，另一个在<body>标签里，浏览器会自动创建哪一个。<br>插入内容的特点</body></html></body></p>
+<p>正如前面提及的，插入的内容在页面的源码里是不可见的。只能在css里可见</p>
+<p>同时，插入的元素在默认情况下是内联元素（或者，在html5中，在文本语义的类别里）。因此，为了给插入的元素赋予高度，填充，边距等等，你通常必须显式地定义它是一个块级元素。</p>
+<p>这会是对如何设计伪元素的一个简要的说明，看我下面文本编辑器的这幅图<br>2015527152044668.jpg (500×324)</p>
+<p>在这个例子中，我高亮的样式将被应用到元素里插入到目标元素内容的前面和后面。</p>
+<p>还要注意的是典型的CSS继承规则适用于插入的元素。例如，你有字体系列黑体，宋体，无衬线字体应用到body元素里，然后伪元素会像其他元素一样继承这些字体系列。</p>
+<p>同样的，伪元素不会继承没有自然继承自父元素(如 padding and margins)的样式。<br>之前或之后是什么？</p>
+<p>你的直觉是:before和:after伪元素可能是 插入的内容会被注入到目标元素的前或后注入。但是，正如上面提到的，不是这样的。</p>
+<p>注入的内容将是有关联的目标元素的子元素，但它会被置于这个元素的任何内容的“前”或“后”。</p>
+<p>为了证明这一点，看看下面的代码。首先，在HTML：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p class=&quot;box&quot;&gt;Other content.&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+
+<p>下面是插入伪元素的css：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">p.box &#123;   </span><br><span class="line">  width: 300px;   </span><br><span class="line">  border: solid 1px white;   </span><br><span class="line">  padding: 20px;   </span><br><span class="line">&#125;   </span><br><span class="line">    </span><br><span class="line">p.box:before &#123;   </span><br><span class="line">  content: &quot;#&quot;;   </span><br><span class="line">  border: solid 1px white;   </span><br><span class="line">  padding: 2px;   </span><br><span class="line">  margin: 0 10px 0 0;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在此html里，你所看的一段文字带有的是一个类的box，还有这样的文字“Other content”在里面（像你所会看到的一样，如果你看见了首页的源代码）。在css中，这段内容被设置了宽度，以及一些padding和可见的边框</p>
 <hr>
-<p><strong>本地使用</strong><br><strong>1. 创建目录</strong><br>Hexo的所有文章都是以文件的形式存储在目录下的，所以首先需要新建一个目录，我的是Hexo，在此目录下操作。</p>
-<p><strong>2. 初始化博客</strong><br>hexo init</p>
-<p><strong>3. 新建文章</strong><br>hexo new “BlogName”（BlogName是你的文章名称）<br>会在source/_posts目录下生成BlogName.md文件，可以vim或其他Markdown编辑器进行修改。</p>
-<p><strong>4. 生成博客静态文件</strong><br>hexo g（g代表generate），生成博客静态文件<br>每次修改文章后，都需要通过hexo clean清理一下，<br>然后通过hexo g重新生成，<br>最后也不要忘了通过hexo s重新启动Hexo。</p>
-<p><strong>5. 启动博客</strong><br>hexo s（s代表server，默认端口号是4000）</p>
-<p><strong>6. 更换主题</strong><br>将需要更换的主题下载并解压缩到theme/yourThemeName目录下，yourThemeName是你给主题取的名字，<br>如我用的主题是next，只需要解压缩到Hexo/themes/next目录下即可,<br>当然你也可以直接在Hexo目录下执行git clone <a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">https://github.com/theme-next/hexo-theme-next</a> themes/next，<br>解压完成后，修改_config.yaml文件中的theme属性，默认是landscape，修改为next：<br><img src="/.com//1.jpg" alt></p>
-<p><strong>7. 其他_config.yaml配置</strong><br>_config.yaml文件是Hexo项目的全局配置文件，常用的属性有：<br><img src="/.com//2.jpg" alt></p>
-<hr>
-<p><strong>服务器部署</strong><br><strong>（一） 本地 + github.io 白嫖部署</strong><br><strong>1. 生成github.io仓库</strong><br>首先注册并登录GitHub，创建新public仓库，仓库名称一定要是：<br>YourGitHubName.github.io（YourGitHubName是你的GitHub昵称，大小写敏感！）</p>
-<p><strong>2. 本地安装Hexo的git部署插件</strong><br>在Hexo的目录下，输入npm install –save hexo-deployer-git，会报一个peerDependencies WARNING，可以忽略。</p>
-<p><strong>3. 本地修改_config.yaml文件</strong><br>在Hexo目录下，找到_config.yaml文件，在#Deployment做如下修改：<br><img src="/.com//3.jpg" alt><br><strong>4. 部署</strong><br>hexo d<br>部署成功后，浏览器输入YourGitHubName.github.io即可访问，其中YourGitHubName是你的GitHub昵称，且大小写敏感</p>
+<p>外面的盒子是这个段落。围绕有散列符号的边框表示伪元素的边界。所以，不是插入“before”到段落，而是伪元素被置于到此段落的“Other content”的前面。<br>插入非文本内容</p>
+<p>我简要的提醒，你可以把属性的值置为空字符串或是插入文本内容。你基本上有属性的值要包含什么的两个额外的选择</p>
+<p>首先，你可以包含一个指向一个图像的URL，就像在css里包含一个背景图像一样做你能做的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p:before &#123;   </span><br><span class="line">  content: url(image.jpg);   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意不能使用引号。如果你将URL用引号括起来，那么它会变成一个字符串和插入文本“url(image.jpg)”作为其内容，插入的而不是图像本身。</p>
+<p>当然，你可以包含一个Data URI代替图像引用，正如你可以用css背景一样。</p>
+<p>你还可以选择ATRR(X)中的函数的形式。此功能，根据规范?，“把X属性的值以字符串的形式返回”</p>
+<p>下面是一个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a:after &#123;   </span><br><span class="line">  content: attr(href);   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>attr（）函数的功能是什么？它得到特定属性的值并把它作为插入的文本成为一个伪元素。</p>
+<p>上面的代码会导致页面上的每一个<a>元素的href值立即被放置在每个各自的<a>元素的后面。在文档被打印时，它可以用作一个包含所有URl的打印样式表。</a></a></p>
+<p>你也可以用这个函数去获取元素的title属性，或者甚至是microdata的值。当然，并不是所有的例子都符合自己的实际，但根据不同的情况，一个特定的属性值作为一个伪元素可以是实际的</p>
+<p>然而，获取title或者图像的alt的值并作为实际的伪元素显示在页面上是不可能的。记住伪元素必须是被应用元素的子元素。图像，这是void(或者是空元素)，没有子元素，所以它在这个列子中不可用，同样也适用于其他空元素，例如：<input>。
+可怕的浏览器兼容性</p>
+<p>任何前端技术的发展势头，第一个问题就是浏览器的支持。在这种情况之下，它不是个很大的问题。</p>
+<p>浏览器支持:before 和 :after 伪元素栈，像这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Chrome 2+,</span><br><span class="line">Firefox 3.5+ (3.0 had partial support),</span><br><span class="line">Safari 1.3+,</span><br><span class="line">Opera 9.2+,</span><br><span class="line">IE8+ (with some minor bugs),</span><br><span class="line">几乎所有的移动浏览器。</span><br></pre></td></tr></table></figure>
+
+<p>唯一真正的问题是没有获得支持的（不用奇怪）IE6和IE7。所以，如果你的爱好者是在良好合适的web开发（或者其他具有较低IE版本的市场），你可以继续自由地使用伪元素。<br>伪元素不是决定性的</p>
+<p>幸运的是，缺少伪元素不会造成大问题。大多数情况下，伪元素一般修饰（或者帮助）内容，不会给不支持的浏览器造成问题。所以，如果你的支持者具有较高的IE版本，你仍然可以在某种程度上使用它们。<br>一些提醒</p>
+<p>正如前面提到的，伪元素不会出现在DOM中。这些元素不是真正的元素。因此，它们不是可用的。所以，不要使用伪元素生成内容，是您的网页的可用性和可访问性的关键。</p>
+<p>另外一件需要记住的是，开发工具，例如火狐，不要用伪元素显示内容。所以，如果使用了，伪元素会造成难以维护和调试缓慢。</p>
 
       
 
@@ -273,7 +308,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/18/静态博客Hexo搭建教程/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/19/CSS中的before和-after伪元素使用详解/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,18 +322,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/06/19/CSS中的before和-after伪元素使用详解/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          CSS中的before和:after伪元素使用详解
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/06/17/one/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">关于和美工配合的那些事</div>
+    <a href="/2019/06/18/静态博客Hexo搭建教程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">静态博客Hexo搭建教程</div>
       <i class="icon-circle-right"></i>
     </a>
   
